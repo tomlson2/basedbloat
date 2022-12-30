@@ -1,21 +1,17 @@
 <script>
-let title = 'Based Bloat Site'
-
-const updateTitle = () => {
-	title = "Based Bloatless Site"
-}
+let hour, month, second
+const months = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+const weekdays = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+let day = new Date();
 </script>
 
-<div class="index">
-	<h2>{title}</h2>
-	<p>Will the sveltekit be the kit to end all kits?</p>
-	<button on:click={updateTitle}>make website fast</button>
+<div class="center">
+	<p>{months[day.getMonth()]}<span style="font-size: xx-large;">{day.getDay()}</span>{weekdays[day.getDay()]}</p>
 </div>
 
 <style>
-	.index {
+	.center {
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		text-align: center;
-		display: block;
-		margin: 20px auto;
 	}
 </style>
