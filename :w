@@ -1,32 +1,40 @@
 <script>
-	import '../app.css'
+	//import '../app.css'
 	import { enter } from '../lib/actions' 
-	import { onMount } from 'svelte'
-	
+	import { resize } from '../lib/resize'
+
 	const months = ["january","february","march","april","may","june","july","august","september","october","november","december"];
 	const weekdays = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
 	let day = new Date();
 	
 	let text
-	let input = '';
+	let input = ''
 	function submit() {
-		input = ''
+		input.value = ''
 	}
-	function init(el){
-		el.focus()
-	}	
-</script>
+	function update() {
+		
+	}
+	let caretVis = true;
+	let display
+	function animateCaret() {
+		caretVis = !caretVis;
+		display = caretVis ? 'block' : 'none';
+	}
 
-<pre class="terminal-block">{input}<span>&nbsp;
+	setInterval(animateCaret, 500);
+
+</script>
+<div><p>{input}</p>&nbsp;</div>
+<div id="caret" style="display: {display}">&nbsp;</div>
+<pre class="terminal-block">$ test 123 <span>&nbsp;
 </span>
 </pre>
 <div>
 <input
-		display: none
 		type="text"
 		spellcheck="false"
 		bind:value={input}
-		use:init
 		use:enter
 		on:enterkey={submit}
 		on:resize={update}
@@ -34,16 +42,16 @@
 </div>
 
 <style>
-	input {
+	#caret {
+		float: left;
 		display: none;
-	}
-	body {
-		background-color: #1f1f28
+		width: 8px;
+		height: 20px;
+		background-color: red;
 	}
 	pre {
-		text-align: center;
-		color: #dcd7ba;
-		font-size: 40px
+		background: #000;
+		color: white;
 	}
 	pre.terminal-block> span {
 		background-color: hsla(1, 1%, 100%, 1);
