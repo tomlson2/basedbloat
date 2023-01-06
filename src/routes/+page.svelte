@@ -17,7 +17,11 @@
 		"libgen.rs",
 		"neetcode.io",
 		"leetcode.com",
-		"levels.fyi"
+		"levels.fyi",
+		"discord.gg",
+		"geeksforgeeks.org",
+		"kaggle.com",
+		"https://lolalytics.com"
 	]
 
 	const fuse = new Fuse(bookmarks)
@@ -70,14 +74,12 @@
 </script>
 
 <div class="page">
-	<h2>tmenu</h2>
 	<pre class="terminal-block">{text}<span>&nbsp;</span></pre>
 	<span> {#each matches as m} <li class="match">{(m.item).match(urlRegex)[1]}</li> {/each} </span>
 </div>
 
 <style>
 	.page {
-		text-align: center;
 		color: #dcd7ba;
 		font-size: 40px;
 	}
@@ -87,13 +89,6 @@
 	li {
 		list-style: none;
 		font-family: monospace;
-	}
-	h2 {
-		text-align: center;
-		position: absolute;
-		bottom: 0;
-		color: #dcd7ba;;
-		font-size: 20px;
 	}
 	pre {
 		font-size: 40px;
